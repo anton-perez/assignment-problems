@@ -7,7 +7,7 @@ def is_symmetric(input_string):
   else:
       is_palindrome = False
 
-  return palindrome
+  return is_palindrome
 
 print("testing is_symmetric on input 'racecar'...")
 assert is_symmetric("racecar") is True, "is_symmetric('racecar') should be True"
