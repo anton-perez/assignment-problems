@@ -1,13 +1,13 @@
 def is_symmetric(input_string):
-    backwards_string = input_string[::-1]
-    is_palindrome = False
+  backwards_string = input_string[::-1]
+  is_palindrome = False
 
-    if backwards_string == input_string:
-        is_palindrome = True
-    else:
-        is_palindrome = False
+  if backwards_string == input_string:
+      is_palindrome = True
+  else:
+      is_palindrome = False
 
-    return palindrome
+  return palindrome
 
 print("testing is_symmetric on input 'racecar'...")
 assert is_symmetric("racecar") is True, "is_symmetric('racecar') should be True"
