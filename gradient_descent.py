@@ -10,12 +10,6 @@ def estimate_partial_derivative(f, point, delta, variable):
   elif variable == "y":
     return (f(point[0], point[1] + delta/2) - f(point[0], point[1] - delta/2))/delta
 
-# def gradient_descent(f,x0,alpha=0.01,delta=0.0001,iterations=10000):
-#   x = x0
-#   for i in range(iterations):
-#     x = x - alpha*estimate_derivative(f,x,delta)
-#   return x
-
 def gradient_descent(f,initial_point,alpha=0.01,delta=0.0001,iterations=10000):
   x = initial_point[0]
   y = initial_point[1]
@@ -26,23 +20,19 @@ def gradient_descent(f,initial_point,alpha=0.01,delta=0.0001,iterations=10000):
     y -= alpha*estimate_partial_derivative(f,(temp_x,temp_y),delta,'y')
   return (x,y)
 
-
-# def f(x):
-#   return x**2+2*x+1
-
-# def g(x):
-#   return (x**2 + math.cos(x))/ (math.e**(math.sin(x))) 
-
-# min_f = round(gradient_descent(f,0),8)
-# min_g = round(gradient_descent(g,0),8)
-# print((min_f, f(min_f)))
-# print((min_g, g(min_g)))
-
 def f(x,y):
   return 1 + y**2 + x**2
 
 def g(x,y):
   return 1 + x**2 + 2*x + y**2 - 9*y
 
-print(gradient_descent(f,(1,2)))
-print(gradient_descent(g,(0,0)))
+min_f = gradient_descent(f,(1,2))
+min_g = gradient_descent(g, (0,0))
+
+print(min_f, f(min_f[0], min_f[1]))
+print(min_g, g(min_g[0], min_g[1]))
+
+#the minimum of f(x,y) = 1 + x^2 + y^2 is 1, and it occurs at the point (0,0)
+#f(x) = 1 + x^2 + 2x + y^2 - 9y
+#     = (x + 1)^2 + (y - 4.5) - 20.25
+# the minimum is -20.25, and it occurs at (-1, 4.5)
